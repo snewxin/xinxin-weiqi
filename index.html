@@ -22,7 +22,7 @@
         html.font-scale-xlarge  { font-size: 21px; }
 
         body {
-            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
             background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 55%, #fefce8 100%);
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
@@ -3272,12 +3272,21 @@
                 const str = tNode.nodeValue;
                 if (!str || !/[\u4e00-\u9fa5]/.test(str)) return;
                 const frag = document.createDocumentFragment();
+                let plainBuffer = '';
+                const flushPlainBuffer = () => {
+                    if (plainBuffer.length > 0) {
+                        frag.appendChild(document.createTextNode(plainBuffer));
+                        plainBuffer = '';
+                    }
+                };
+
                 let i = 0;
                 while (i < str.length) {
                     // 1. 優先檢查 3 字與 2 字多音詞（破音字詞庫）
                     const slice3 = str.slice(i, i + 3);
                     const slice2 = str.slice(i, i + 2);
                     if (slice3.length === 3 && ZHUYIN_PHRASE_MAP[slice3]) {
+                        flushPlainBuffer();
                         const zys = ZHUYIN_PHRASE_MAP[slice3];
                         for (let k = 0; k < 3; k++) {
                             frag.appendChild(createZhuyinSpan(slice3[k], zys[k]));
@@ -3286,6 +3295,7 @@
                         continue;
                     }
                     if (slice2.length === 2 && ZHUYIN_PHRASE_MAP[slice2]) {
+                        flushPlainBuffer();
                         const zys = ZHUYIN_PHRASE_MAP[slice2];
                         for (let k = 0; k < 2; k++) {
                             frag.appendChild(createZhuyinSpan(slice2[k], zys[k]));
@@ -3293,15 +3303,17 @@
                         i += 2;
                         continue;
                     }
-                    // 2. 單字查表轉換
+                    // 2. 單字查表轉換；非中文字（含 Emoji 雙字節代理對 Surrogate Pairs 與 \uFE0F 變體選擇符）合併為完整單一文字節點，防止 iPad Safari 圖示消失
                     const ch = str[i];
                     if (ZHUYIN_CHAR_MAP[ch]) {
+                        flushPlainBuffer();
                         frag.appendChild(createZhuyinSpan(ch, ZHUYIN_CHAR_MAP[ch]));
                     } else {
-                        frag.appendChild(document.createTextNode(ch));
+                        plainBuffer += ch;
                     }
                     i++;
                 }
+                flushPlainBuffer();
                 tNode.replaceWith(frag);
             });
         }
