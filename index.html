@@ -704,7 +704,7 @@
             '域':'ㄩˋ','種':'ㄓㄨㄥˇ','素':'ㄙㄨˋ','聯':'ㄌㄧㄢˊ','符':'ㄈㄨˊ','號':'ㄏㄠˋ','威':'ㄨㄟ','脅':'ㄒㄧㄝˊ','驟':'ㄓㄡˋ','尋':'ㄒㄩㄣˊ',
             '奏':'ㄗㄡˋ','改':'ㄍㄞˇ','漂':'ㄆㄧㄠˋ','機':'ㄐㄧ','剛':'ㄍㄤ','製':'ㄓˋ','造':'ㄗㄠˋ','場':'ㄔㄤˇ','例':'ㄌㄧˋ','柱':'ㄓㄨˋ',
             '盡':'ㄐㄧㄣˋ','貪':'ㄊㄢ','卻':'ㄑㄩㄝˋ','繼':'ㄐㄧˋ','預':'ㄩˋ','埋':'ㄇㄞˊ','伏':'ㄈㄨˊ','依':'ㄧ','序':'ㄒㄩˋ','紫':'ㄗˇ',
-            '深':'ㄕㄣ','海':'ㄏㄞˇ','晶':'ㄐㄧㄥ','楚':'ㄔㄨˇ'
+            '深':'ㄕㄣ','海':'ㄏㄞˇ','晶':'ㄐㄧㄥ','楚':'ㄔㄨˇ','胡':'ㄏㄨˊ','各':'ㄍㄜˋ'
         };
 
         // 教育部《國語一字多音審訂表》破音詞優先配對表（確保多音字依詞語語境自動切換正確讀音）
@@ -800,8 +800,8 @@
                             {
                                 name: "3. 牽手救回危急同伴", size: 7, mode: "single_move",
                                 desc: "中央的黑棋被白棋包圍只剩 1 口氣了！快下一子把它和下方的黑棋好朋友連在一起！",
-                                coach: "下在 (D3) 把兩邊黑棋連起來，呼吸孔馬上變多就安全囉！",
-                                initBlack: [[3,3],[2,1],[4,1]], initWhite: [[3,4],[2,3],[4,3]], correctMoves: [[3,2]]
+                                coach: "下在 (D3) 把上下兩邊黑棋手牽手連起來，呼吸孔馬上變多就安全囉！",
+                                initBlack: [[3,3],[2,1],[3,1],[4,1]], initWhite: [[3,4],[2,3],[4,3]], correctMoves: [[3,2]]
                             }
                         ]
                     }
@@ -815,15 +815,15 @@
                         substages: [
                             {
                                 name: "1. 關門吃白子", size: 7, mode: "single_move",
-                                desc: "白棋想從兩顆黑棋門柱中間往外逃跑，請下在正前方像把大門鎖上一樣，把白棋關在門裡叫吃！",
-                                coach: "下在 (D3)，像關大門一樣把白子鎖在門裡，白棋就只剩 1 口氣逃不掉囉！",
-                                initBlack: [[2,3],[4,3],[3,4],[2,2],[4,2]], initWhite: [[3,3]], correctMoves: [[3,2]]
+                                desc: "白棋只剩 2 口氣，想從下方兩顆黑棋門柱中間往外逃跑！請下在門口 (D3) 把大門鎖上，讓白棋只剩 1 口氣關在門裡！",
+                                coach: "下在 (D3)，像關大門一樣把白子鎖在門裡叫吃，白棋就算往 (D5) 跑也是死路一條喔！",
+                                initBlack: [[2,3],[4,3],[2,4],[4,4],[3,5]], initWhite: [[3,3]], correctMoves: [[3,2]]
                             },
                             {
                                 name: "2. 邊線關門吃", size: 7, mode: "single_move",
-                                desc: "白棋想往中央逃跑，請下在門口把這顆白棋關起來叫吃！",
-                                coach: "下在 (D2) 把門鎖上，白棋就插翅也難飛囉！",
-                                initBlack: [[2,0],[4,0],[2,1],[4,1]], initWhite: [[3,0]], correctMoves: [[3,1]]
+                                desc: "白棋在二線只剩 2 口氣，想往中央逃跑！請下在正前方門口 (D3) 把白棋關回底線叫吃！",
+                                coach: "下在 (D3) 把門鎖上，白棋被關進底線死胡同就插翅也難飛囉！",
+                                initBlack: [[2,0],[4,0],[2,1],[4,1]], initWhite: [[3,1]], correctMoves: [[3,2]]
                             }
                         ]
                     },
@@ -832,15 +832,15 @@
                         substages: [
                             {
                                 name: "1. 同時叫吃兩顆", size: 7, mode: "single_move",
-                                desc: "找到一個奇妙的落子點，同時讓兩邊不同的白棋都只剩 1 口氣！",
-                                coach: "下在 (D4) 這顆神奇的中間點，白棋救了左邊就救不了右邊！",
-                                initBlack: [[2,4],[4,4]], initWhite: [[2,3],[4,3]], correctMoves: [[3,3]]
+                                desc: "左右兩顆白棋目前都只剩 2 口氣！請找到中間奇妙的落子點 (D4)，同時讓兩邊的白棋都變成只剩 1 口氣（雙叫吃）！",
+                                coach: "下在 (D4) 這顆神奇的中間點，左右兩顆白棋同時亮紅燈剩 1 氣，白棋救了左邊就救不了右邊！",
+                                initBlack: [[2,4],[1,3],[4,4],[5,3]], initWhite: [[2,3],[4,3]], correctMoves: [[3,3]]
                             },
                             {
                                 name: "2. 切斷兼雙叫吃", size: 7, mode: "single_move",
-                                desc: "白棋斜角有破綻！請下一子切斷白棋，同時讓上下兩顆白子都只剩 1 口氣！",
-                                coach: "下在 (D4) 切斷白棋，上下兩顆白棋同時亮紅燈叫吃！",
-                                initBlack: [[2,2],[2,4],[4,2],[4,4]], initWhite: [[3,2],[3,4]], correctMoves: [[3,3]]
+                                desc: "上下兩顆白棋各剩 2 口氣且斜角有破綻！請從 (C4) 往中間 (D4) 衝出切斷白棋，同時讓上下兩顆白子都只剩 1 口氣！",
+                                coach: "下在 (D4) 切斷白棋，上下兩顆白棋同時亮紅燈只剩 1 口氣，必定能吃掉其中一顆！",
+                                initBlack: [[2,2],[2,3],[2,4],[3,1],[3,5]], initWhite: [[3,2],[3,4],[4,3]], correctMoves: [[3,3]]
                             }
                         ]
                     },
@@ -849,15 +849,15 @@
                         substages: [
                             {
                                 name: "1. 虛籠罩住白子", size: 7, mode: "single_move",
-                                desc: "不用緊貼白棋，在斜下方像罩子一樣罩住它，白棋怎麼逃都逃不掉！",
-                                coach: "下在 (E3) 形成天羅地網，白棋往哪裡衝都會自己撞進死路！",
-                                initBlack: [[2,3],[3,2]], initWhite: [[3,3]], correctMoves: [[4,2]]
+                                desc: "白棋想往右上方逃跑！不用緊貼白棋，請在斜對角 (E5) 像罩子一樣罩住它，白棋往哪邊衝都會撞上網子被吃！",
+                                coach: "下在 (E5) 形成天羅地網，白棋不管往 (D5) 或 (E4) 衝都會自己撞進死路！",
+                                initBlack: [[2,3],[2,4],[3,2],[4,2]], initWhite: [[3,3]], correctMoves: [[4,4]]
                             },
                             {
                                 name: "2. 對稱天羅地網", size: 7, mode: "single_move",
-                                desc: "白棋想從左上方溜走，請下在斜對稱的網口位置，用枷吃困住白子！",
-                                coach: "下在 (C5) 罩住白棋，這就是瀟灑的「枷吃」！",
-                                initBlack: [[3,4],[4,3]], initWhite: [[3,3]], correctMoves: [[2,4]]
+                                desc: "白棋想從左上方溜走，請下在斜對稱的網口位置 (C5)，用枷吃困住白子！",
+                                coach: "下在 (C5) 罩住白棋，不管它往左或往上衝都逃不出手掌心，這就是瀟灑的「枷吃」！",
+                                initBlack: [[3,2],[2,2],[4,3],[4,4]], initWhite: [[3,3]], correctMoves: [[2,4]]
                             }
                         ]
                     },
@@ -1100,9 +1100,9 @@
                         substages: [
                             {
                                 name: "1. 擋住白棋入侵", size: 7, mode: "single_move",
-                                desc: "白棋想爬進你的角落領地，請下一手扳擋住白棋的去路！",
-                                coach: "下在 (E5) 擋住白棋，把自己的角落領地守得緊緊的！",
-                                initBlack: [[4,5],[3,4]], initWhite: [[4,3]], correctMoves: [[4,4]]
+                                desc: "白棋想從右邊爬進你的右上角領地，請下一手擋住白棋的去路，同時把黑棋連起來！",
+                                coach: "下在 (E5) 擋住白棋入侵，把自己的角落領地守得緊緊的！",
+                                initBlack: [[4,5],[3,4]], initWhite: [[4,3],[5,3]], correctMoves: [[4,4]]
                             },
                             {
                                 name: "2. 邊界一線立下守空", size: 7, mode: "single_move",
@@ -1187,6 +1187,7 @@
         let currentSubstageHintUsed = false;
         let wrongMoveVisualEffect = null;
         let wrongMoveTimerId = null;
+        let aiReplyTimerId = null;
 
         // 學員與紀錄資料庫
         let profilesData = {};
@@ -2171,7 +2172,9 @@
                                     }
                                 }
                                 if (stepInfo.aiReply) {
-                                    setTimeout(() => {
+                                    if (aiReplyTimerId) clearTimeout(aiReplyTimerId);
+                                    aiReplyTimerId = setTimeout(() => {
+                                        aiReplyTimerId = null;
                                         playMoveOnBoard(stepInfo.aiReply[0], stepInfo.aiReply[1], 'white', true);
                                         setCoachFeedback(
                                             stepInfo.coachReply || "白棋應手了！請再給它致命一擊！",
@@ -2555,6 +2558,14 @@
         }
 
         function loadCurrentCurriculumStage() {
+            if (aiReplyTimerId) {
+                clearTimeout(aiReplyTimerId);
+                aiReplyTimerId = null;
+            }
+            if (wrongMoveTimerId) {
+                clearTimeout(wrongMoveTimerId);
+                wrongMoveTimerId = null;
+            }
             tappedPointsSet.clear();
             pendingConfirmPoint = null;
             activeHintPoint = null;
@@ -2723,9 +2734,10 @@
             }
             else if (presetKey === 'doubleAtari') {
                 initBoardGrid(7);
-                board[2][4] = 'black'; board[4][4] = 'black';
+                board[2][4] = 'black'; board[1][3] = 'black';
+                board[4][4] = 'black'; board[5][3] = 'black';
                 board[2][3] = 'white'; board[4][3] = 'white';
-                presetMsg = "⚔️【雙叫吃與門吃】試著下在 (D4) 同時叫吃左右兩顆白棋！";
+                presetMsg = "⚔️【雙叫吃特訓】左右兩顆白棋各剩 2 口氣！試著下在中間 (D4) 同時叫吃兩顆白棋！";
             }
             else if (presetKey === 'ladder') {
                 initBoardGrid(7);
@@ -2918,6 +2930,10 @@
         }
 
         function undoLastMove() {
+            if (aiReplyTimerId) {
+                clearTimeout(aiReplyTimerId);
+                aiReplyTimerId = null;
+            }
             if (moveHistory.length === 0) return;
             if (currentChapter !== 0) {
                 const st = CURRICULUM[currentChapter].stages[currentStageIdx];
@@ -3698,7 +3714,7 @@
                 desc: "一手棋落下去，同時讓對方的兩顆或兩塊棋子都變成只剩 1 口氣！對方救了左邊就救不了右邊，必定能吃掉其中一邊！",
                 tip: "🦊 口訣：一顆黑子中間坐，兩邊白棋都喊救命！",
                 miniBoard: {
-                    black: [[1,3],[3,3],[2,2]], white: [[1,2],[3,2]],
+                    black: [[0,2],[1,3],[3,3],[4,2],[2,2]], white: [[1,2],[3,2]],
                     markers: [{ x: 2, y: 2, type: 'move', text: '★' }, { x: 1, y: 1, type: 'atari' }, { x: 3, y: 1, type: 'atari' }]
                 }
             },
@@ -3707,8 +3723,8 @@
                 desc: "當對方棋子想往外逃跑時，下在正前方像把大門鎖上一樣，把敵子關在門裡叫吃提掉！",
                 tip: "🦊 口訣：大門一關鎖起來，白棋插翅也難飛！",
                 miniBoard: {
-                    black: [[1,2],[3,2],[2,3]], white: [[2,2]],
-                    markers: [{ x: 2, y: 1, type: 'move', text: '門' }]
+                    black: [[1,2],[3,2],[1,3],[3,3],[2,4]], white: [[2,2]],
+                    markers: [{ x: 2, y: 1, type: 'move', text: '門' }, { x: 2, y: 3, type: 'atari' }]
                 }
             },
             {
@@ -3716,7 +3732,7 @@
                 desc: "不用直接緊貼敵子，而是在斜對角遠遠罩住它，像撒開一張漁網，敵子往哪邊衝都會自己撞上漁網被吃！",
                 tip: "🦊 口訣：斜角張開天羅網，不貼身也能困住你！",
                 miniBoard: {
-                    black: [[1,2],[2,1]], white: [[2,2]],
+                    black: [[1,2],[1,3],[2,1],[3,1]], white: [[2,2]],
                     markers: [{ x: 3, y: 3, type: 'move', text: '枷' }]
                 }
             },
@@ -3725,8 +3741,8 @@
                 desc: "故意送一顆棋子進對方的虎口當作「魚餌」，等對方開心地提吃後，會發現自己整串棋子反而只剩 1 口氣，被我們全部回提！",
                 tip: "🦊 口訣：小小魚餌丟進去，釣起一條大白鯊！",
                 miniBoard: {
-                    black: [[1,2],[3,2],[2,3],[1,1],[3,1]], white: [[2,1]],
-                    markers: [{ x: 2, y: 2, type: 'move', text: '餌' }]
+                    black: [[0,2],[1,3],[2,4],[3,3],[1,1],[2,0]], white: [[1,2],[2,1],[3,2],[3,1]],
+                    markers: [{ x: 2, y: 2, type: 'move', text: '餌' }, { x: 2, y: 3, type: 'atari' }]
                 }
             },
             {
